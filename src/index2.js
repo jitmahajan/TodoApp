@@ -1,5 +1,5 @@
 import express from "express";
-import {readAll} from "./index.js"
+import {readAll, insert} from "./index.js"
 
  const app = express();
 
@@ -7,6 +7,11 @@ import {readAll} from "./index.js"
 app.get("/", async(req, res) => {
     let list = await readAll();
     res.json(list);
+});
+
+app.get("/add",async (req, res) =>{
+    await insert({message : "via api"});
+    res.json({message :"success"});
 });
 
  app.listen(4400);

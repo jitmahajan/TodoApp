@@ -15,9 +15,9 @@ const client = new MongoClient(uri);
 
 async function readAll(){
 
-  const uri = "mongodb://127.0.0.1:27017/";
+const uri = "mongodb://127.0.0.1:27017/";
 const client = new MongoClient(uri);
-  const db = client.db("project");
+  const db = client.db("project1");
   const todo_collection = db.collection("todo");
 
   let list = await todo_collection.find().toArray();
