@@ -15,4 +15,14 @@ async function insert() {
   await client.close();
 }
 
-insert();
+async function readAll(){
+  const db = client.db("project");
+  const todo_collection = db.collection("todo");
+
+  let list = await todo_collection.find().toArray();
+  console.log(list);
+
+  await client.close();
+}
+
+readAll();
