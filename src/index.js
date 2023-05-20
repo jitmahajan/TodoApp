@@ -1,11 +1,10 @@
 import { MongoClient } from 'mongodb';
 
-const uri = "mongodb://127.0.0.1:27017/";
-const client = new MongoClient(uri);
-
-
 
 async function insert(data) {
+
+  const uri = "mongodb://127.0.0.1:27017/";
+const client = new MongoClient(uri);
  
  // await client.connect();
   const db = client.db("project1");
@@ -15,13 +14,17 @@ async function insert(data) {
 }
 
 async function readAll(){
+
+  const uri = "mongodb://127.0.0.1:27017/";
+const client = new MongoClient(uri);
   const db = client.db("project");
   const todo_collection = db.collection("todo");
 
   let list = await todo_collection.find().toArray();
-  console.log(list);
+//  console.log(list);
 
   await client.close();
+  return list;
 }
 
 export{insert, readAll};
