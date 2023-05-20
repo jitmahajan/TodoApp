@@ -5,11 +5,10 @@ const client = new MongoClient(uri);
 
 
 
-async function insert() {
+async function insert(data) {
  
  // await client.connect();
   const db = client.db("project1");
-  let data = { message: "Connecting Mongo" };
   let result = await db.collection("todo").insertOne(data);
 
   await client.close();
