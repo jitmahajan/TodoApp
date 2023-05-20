@@ -25,4 +25,4 @@ async function readAll(){
   await client.close();
 }
 
-readAll();
+export{insert, readAll};
